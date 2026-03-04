@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoltCloud — הסוללה שלך לא תמות יותר לעולם</title>
+<meta name="description" content="Trip Mode שורד 3 ימים בלי מטען. Battery Guarantee מבטיח שהסוללה תחזיק. Family Shield + SOS שומר על המשפחה. הצטרף לרשימת ההמתנה.">
+<meta name="keywords" content="battery app, trip mode, battery saver, family shield, SOS battery, voltcloud">
+<meta property="og:title" content="VoltCloud — Never Die. Never Charge.">
+<meta property="og:description" content="Trip Mode lets your phone survive 3 days without a charger. Battery Guarantee ensures your phone lasts until the hour you set. Join the waitlist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://voltcloud.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VoltCloud — Never Die. Never Charge.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="canonical" href="https://voltcloud.app">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#FCFCFC;--k:#1A1A1A;--k80:#444;--k60:#666;--k40:#999;--k20:#CCC;--k10:#E8E8E8;--k05:#F4F4F4;
+  --v:#5B4AE4;--v2:#7C6EF6;--v3:#9D93F8;--vbg:rgba(91,74,228,.04);--vbrd:rgba(91,74,228,.08);
+  --gn:#00B85C;--gn2:#E8F9F0;--rd:#E53935;--og:#F5860A;--wa:#25D366;
+  --f:'Instrument Sans',system-ui,-apple-system,sans-serif;--s:'Newsreader',Georgia,serif;--m:'JetBrains Mono',monospace;
+  --sh:0 1px 3px rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.03);
+  --sh2:0 12px 40px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03);
+  --r:16px;--max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body{font-family:var(--f);color:var(--k);background:var(--bg);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ═══════════════════════ */
+/* ═══ NAV ═══ */
+/* ═══════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(252,252,252,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04);transition:all .3s}
+nav.scrolled{box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.n-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:17px}
+.n-logo span{font-size:20px}
+.n-links{display:flex;align-items:center;gap:24px}
+.n-link{font-size:14px;color:var(--k60);font-weight:500;transition:color .2s}
+.n-link:hover{color:var(--k)}
+.n-cta{padding:9px 20px;background:var(--k);color:white;border:none;border-radius:10px;font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s}
+.n-cta:hover{background:var(--v);transform:translateY(-1px)}
+@media(max-width:640px){.n-links .n-link{display:none}}
+
+/* ═══════════════════════ */
+/* ═══ HERO ═══ */
+/* ═══════════════════════ */
+.hero{padding:130px 24px 60px;text-align:center;max-width:820px;margin:0 auto;position:relative}
+.h-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:var(--vbg);border:1px solid var(--vbrd);border-radius:100px;font-size:13px;color:var(--v);font-weight:500;margin-bottom:28px;opacity:0;animation:fadeUp .6s ease .1s both}
+.h-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gn);box-shadow:0 0 6px rgba(0,184,92,.5);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+
+.hero h1{font-family:var(--s);font-size:clamp(34px,6.5vw,68px);font-weight:300;line-height:1.1;color:var(--k);margin-bottom:22px;letter-spacing:-.5px;opacity:0;animation:fadeUp .8s ease .2s both}
+.hero h1 em{font-style:italic;color:var(--v)}
+
+.hero>p{font-size:18px;color:var(--k60);max-width:540px;margin:0 auto 40px;line-height:1.75;opacity:0;animation:fadeUp .8s ease .35s both}
+
+/* Waitlist */
+.wl{max-width:460px;margin:0 auto;opacity:0;animation:fadeUp .8s ease .45s both}
+.wl-row{display:flex;gap:8px}
+.wl-in{flex:1;padding:15px 18px;background:white;border:1.5px solid var(--k10);border-radius:12px;font-family:var(--f);font-size:15px;color:var(--k);outline:none;direction:ltr;transition:all .2s}
+.wl-in:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(91,74,228,.06)}
+.wl-in::placeholder{color:var(--k20)}
+.wl-btn{padding:15px 28px;background:var(--v);color:white;border:none;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
+.wl-btn:hover{background:var(--v2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(91,74,228,.2)}
+.wl-btn:active{transform:scale(.97)}
+.wl-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;font-size:13px;color:var(--k40)}
+.wl-meta b{color:var(--k)}
+.wl-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--k20)}
+
+.wl-ok{display:none;padding:18px;background:var(--gn2);border:1px solid rgba(0,184,92,.12);border-radius:14px;text-align:center}
+.wl-ok-ico{font-size:32px;margin-bottom:6px}
+.wl-ok-h{font-size:16px;font-weight:600;color:var(--gn);margin-bottom:2px}
+.wl-ok-p{font-size:13px;color:var(--k60)}
+
+/* Proof avatars */
+.proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px;opacity:0;animation:fadeUp .6s ease .6s both}
+.proof-avatars{display:flex}
+.proof-av{width:32px;height:32px;border-radius:50%;border:2px solid white;margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.proof-av:first-child{margin-left:0}
+.proof-txt{font-size:12px;color:var(--k40)}.proof-txt b{color:var(--k)}
+
+/* ═══════════════════════ */
+/* ═══ FEATURES ═══ */
+/* ═══════════════════════ */
+.sec{padding:80px 24px;max-width:var(--max);margin:0 auto}
+.sec-label{font-family:var(--m);font-size:11px;color:var(--v);letter-spacing:3px;font-weight:500;margin-bottom:10px;text-align:center;text-transform:uppercase}
+.sec-h{font-family:var(--s);font-size:clamp(26px,4vw,44px);font-weight:300;text-align:center;margin-bottom:16px;color:var(--k);letter-spacing:-.3px;line-height:1.2}
+.sec-h em{font-style:italic;color:var(--v)}
+.sec-p{text-align:center;color:var(--k60);max-width:520px;margin:0 auto 48px;font-size:16px;line-height:1.7}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ft{background:white;border:1px solid var(--k10);border-radius:var(--r);padding:28px 22px;transition:all .35s;position:relative;overflow:hidden}
+.ft:hover{border-color:var(--vbrd);box-shadow:0 8px 28px rgba(91,74,228,.05);transform:translateY(-3px)}
+.ft-tag{position:absolute;top:14px;left:14px;font-family:var(--m);font-size:8px;color:white;padding:3px 8px;border-radius:5px;letter-spacing:.8px;font-weight:500}
+.ft-ico{font-size:30px;margin-bottom:14px}
+.ft h3{font-size:16px;font-weight:600;margin-bottom:6px;color:var(--k)}
+.ft p{font-size:13px;color:var(--k60);line-height:1.65}
+
+/* ═══ KILLER FEATURE — Trip Mode ═══ */
+.killer{padding:80px 24px;background:var(--k05);position:relative;overflow:hidden}
+.killer::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(91,74,228,.03),transparent 70%);pointer-events:none}
+.killer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.killer-txt .sec-label,.killer-txt .sec-h{text-align:right}
+.killer-txt .sec-p{text-align:right;margin:0 0 24px 0}
+.killer-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.killer-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--k80)}
+.killer-list li::before{content:'✓';width:24px;height:24px;border-radius:7px;background:rgba(91,74,228,.06);color:var(--v);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.killer-visual{display:flex;align-items:center;justify-content:center}
+.k-card{background:white;border:1px solid var(--k10);border-radius:20px;padding:28px;box-shadow:var(--sh2);max-width:320px;width:100%}
+.k-card-h{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.k-card-ico{font-size:28px}
+.k-card-title{font-size:18px;font-weight:600}
+.k-card-badge{font-family:var(--m);font-size:8px;background:rgba(91,74,228,.06);color:var(--v);padding:3px 8px;border-radius:5px;letter-spacing:.5px;font-weight:500}
+.k-days{display:flex;gap:6px;margin-bottom:16px}
+.k-day{flex:1;padding:14px 4px;border-radius:10px;background:var(--k05);border:1.5px solid transparent;text-align:center;transition:all .3s;cursor:pointer}
+.k-day.on{border-color:var(--v);background:rgba(91,74,228,.04)}
+.k-day-n{font-family:var(--s);font-size:24px;font-weight:300;color:var(--k)}
+.k-day-l{font-family:var(--m);font-size:8px;color:var(--k40);letter-spacing:1px;margin-top:2px}
+.k-plan{background:rgba(91,74,228,.02);border:1px solid rgba(91,74,228,.06);border-radius:12px;padding:14px;margin-bottom:16px}
+.k-plan-h{font-family:var(--m);font-size:9px;color:var(--v);letter-spacing:1px;margin-bottom:8px}
+.k-plan-i{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:12px;color:var(--k60)}
+.k-plan-i b{color:var(--k);font-weight:600}
+.k-cta{width:100%;padding:14px;background:var(--v);color:white;border:none;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:600;cursor:default}
+
+/* ═══ COMPARISON ═══ */
+.cmp-wrap{max-width:720px;margin:0 auto}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--k10)}
+.cmp th{padding:14px 20px;text-align:right;font-size:13px;font-weight:600;background:var(--k05);border-bottom:1px solid var(--k10)}
+.cmp th:nth-child(2){color:var(--k40);text-align:center}
+.cmp th:nth-child(3){color:var(--v);text-align:center}
+.cmp td{padding:13px 20px;border-bottom:1px solid rgba(0,0,0,.03);font-size:13px;color:var(--k60)}
+.cmp td:first-child{font-weight:500;color:var(--k)}
+.cmp td:nth-child(2),.cmp td:nth-child(3){text-align:center}
+.cmp tr:last-child td{border:none}
+.cmp .y{color:var(--gn);font-weight:600}
+.cmp .n{color:var(--k20)}
+
+/* ═══ SOCIAL PROOF ═══ */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qt{background:white;border:1px solid var(--k10);border-radius:var(--r);padding:22px;position:relative}
+.qt::before{content:'"';position:absolute;top:10px;right:18px;font-family:var(--s);font-size:48px;color:var(--k10);line-height:1}
+.qt p{font-size:14px;color:var(--k80);line-height:1.6;margin-bottom:12px;position:relative;z-index:1}
+.qt-author{display:flex;align-items:center;gap:8px}
+.qt-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;background:var(--k05)}
+.qt-name{font-size:12px;font-weight:600;color:var(--k)}
+.qt-role{font-size:11px;color:var(--k40)}
+
+/* ═══ HOW ═══ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.stp{text-align:center;padding:20px;counter-increment:s;position:relative}
+.stp::before{content:counter(s);font-family:var(--s);font-size:48px;font-weight:300;color:var(--v);display:block;margin-bottom:10px;opacity:.4}
+.stp h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.stp p{font-size:13px;color:var(--k60);line-height:1.6}
+.stp-arrow{position:absolute;top:40px;left:-20px;font-size:18px;color:var(--k20)}
+
+/* ═══ FINAL CTA ═══ */
+.cta-sec{padding:100px 24px;text-align:center;background:linear-gradient(180deg,var(--bg),var(--k05));position:relative}
+.cta-sec h2{font-family:var(--s);font-size:clamp(26px,4.5vw,44px);font-weight:300;margin-bottom:14px;line-height:1.2}
+.cta-sec h2 em{font-style:italic;color:var(--v)}
+.cta-sec>p{font-size:16px;color:var(--k60);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-sec .wl{animation:none;opacity:1}
+
+/* ═══ WA FLOAT ═══ */
+.wa-f{position:fixed;bottom:24px;left:24px;z-index:90;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:100px;background:var(--wa);color:white;font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(37,211,102,.25);cursor:pointer;transition:all .3s;text-decoration:none}
+.wa-f:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.wa-f span{font-size:20px}
+@media(max-width:640px){.wa-f{padding:14px;border-radius:50%}.wa-f-txt{display:none}}
+
+/* ═══ FOOTER ═══ */
+footer{padding:40px 24px;text-align:center;border-top:1px solid var(--k10)}
+footer p{font-size:13px;color:var(--k40);margin-bottom:4px}
+footer a{color:var(--v);transition:color .2s}
+footer a:hover{color:var(--v2)}
+.foot-links{display:flex;justify-content:center;gap:24px;margin-bottom:12px}
+.foot-links a{font-size:13px;color:var(--k40)}
+.foot-links a:hover{color:var(--k)}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .feats{grid-template-columns:1fr 1fr}
+  .killer-inner{grid-template-columns:1fr;gap:36px}
+  .killer-txt .sec-label,.killer-txt .sec-h,.killer-txt .sec-p{text-align:center}
+  .quotes{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hero{padding:110px 20px 50px}
+  .hero h1{font-size:32px}
+  .wl-row{flex-direction:column}
+  .feats{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:8px}
+  .stp-arrow{display:none}
+  .sec{padding:60px 20px}
+  .killer{padding:60px 20px}
+  .cmp th,.cmp td{padding:10px 12px;font-size:12px}
+  .k-card{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="n-logo" href="#"><span>⚡</span> VoltCloud</a>
+  <div class="n-links">
+    <a class="n-link" href="#features">Features</a>
+    <a class="n-link" href="#trip">Trip Mode</a>
+    <a class="n-link" href="#compare">Compare</a>
+    <a class="n-cta" href="#waitlist">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="h-badge"><span class="h-badge-dot"></span> Early Access — נפתח בקרוב</div>
+  <h1>הסוללה שלך<br>לא תמות <em>יותר לעולם</em></h1>
+  <p>Trip Mode גורם לטלפון לשרוד עד 3 ימים בלי מטען. Battery Guarantee מבטיח שהסוללה תחזיק. Family Shield שומר על מי שחשוב לך.</p>
+  
+  <div class="wl" id="waitlist">
+    <div id="wlForm">
+      <div class="wl-row">
+        <input class="wl-in" id="wlEmail" type="email" placeholder="your@email.com" dir="ltr">
+        <button class="wl-btn" onclick="join(1)">הצטרף בחינם →</button>
+      </div>
+      <div class="wl-meta"><b id="wlCount">2,847</b> כבר ברשימה <span class="wl-meta-dot"></span> חינם לגמרי <span class="wl-meta-dot"></span> ללא כרטיס אשראי</div>
+    </div>
+    <div class="wl-ok" id="wlOk">
+      <div class="wl-ok-ico">🎉</div>
+      <div class="wl-ok-h">!מעולה, נרשמת בהצלחה</div>
+      <div class="wl-ok-p">נודיע לך ברגע שנשיק. הראשונים יקבלו Pro חינם.</div>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="proof-avatars">
+      <div class="proof-av" style="background:#E8E4FF">👨‍💻</div>
+      <div class="proof-av" style="background:#FFF3E0">👩</div>
+      <div class="proof-av" style="background:#E0F7FA">👴</div>
+      <div class="proof-av" style="background:#FCE4EC">👧</div>
+      <div class="proof-av" style="background:#E8F5E9">🧑</div>
+    </div>
+    <span class="proof-txt"><b>2,847</b> people joined this week</span>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="sec" id="features">
+  <div class="sec-label">FEATURES</div>
+  <div class="sec-h">מה VoltCloud עושה<br>שאף אחד <em>לא עושה</em></div>
+  <div class="sec-p">לא עוד אפליקציית סוללה שסופרת אחוזים. VoltCloud באמת מנהל, חוזה, ושומר.</div>
+  <div class="feats">
+    <div class="ft reveal">
+      <div class="ft-tag" style="background:var(--v)">WORLD'S FIRST</div>
+      <div class="ft-ico">🧳</div>
+      <h3>Trip Mode</h3>
+      <p>בחר כמה ימים בלי מטען — 1, 2, 3 או 5. ה-AI יוצר תוכנית ניהול חכמה שגורמת לטלפון להחזיק.</p>
+    </div>
+    <div class="ft reveal">
+      <div class="ft-tag" style="background:var(--gn)">GUARANTEED</div>
+      <div class="ft-ico">🛡️</div>
+      <h3>Battery Guarantee™</h3>
+      <p>תגיד "23:00" — והטלפון יחזיק. ה-AI מנהל 7 שירותים ברקע. לא Low Power Mode — guarantee.</p>
+    </div>
+    <div class="ft reveal">
+      <div class="ft-tag" style="background:var(--rd)">LIFE SAVING</div>
+      <div class="ft-ico">🆘</div>
+      <h3>SOS Battery</h3>
+      <p>ב-5% סוללה נשלח אוטומטית מיקום חי + SMS לאנשים שבחרת. שקט נפשי אמיתי.</p>
+    </div>
+    <div class="ft reveal">
+      <div class="ft-ico">👨‍👩‍👧</div>
+      <h3>Family Shield</h3>
+      <p>ראה את הסוללה של ההורים והילדים בזמן אמת. קבל התראה כשהם ב-critical.</p>
+    </div>
+    <div class="ft reveal">
+      <div class="ft-ico">🔮</div>
+      <h3>Predictive AI</h3>
+      <p>לומד את הרגלי השימוש שלך. יודע שמחר יש פגישה ואין מטען — מכין את הסוללה עכשיו.</p>
+    </div>
+    <div class="ft reveal">
+      <div class="ft-ico">♿</div>
+      <h3>Accessibility First</h3>
+      <p>התראות קוליות, רטט, טקסט מוגדל, עדיפות למכשירים רפואיים. נגיש לכולם.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRIP MODE ═══ -->
+<section class="killer" id="trip">
+  <div class="killer-inner">
+    <div class="killer-txt reveal">
+      <div class="sec-label">KILLER FEATURE</div>
+      <div class="sec-h">Trip Mode — יוצא בלי מטען?<br><em>אנחנו איתך</em></div>
+      <div class="sec-p">הפיצ'ר שאף אפליקציה בעולם לא מציעה. בחר כמה ימים, וה-AI מנהל הכל.</div>
+      <ul class="killer-list">
+        <li>📱 Essential Mode — רק שיחות, SMS, מפות</li>
+        <li>📡 Smart Radio — 5G כבוי, LTE חכם</li>
+        <li>🔆 Display AI — בהירות לפי סביבה</li>
+        <li>📍 GPS רק כשצריך מפות</li>
+        <li>⏰ Deep Sleep — 23:00-07:00 hibernate</li>
+      </ul>
+    </div>
+    <div class="killer-visual reveal">
+      <div class="k-card">
+        <div class="k-card-h">
+          <span class="k-card-ico">🧳</span>
+          <span class="k-card-title">Trip Mode</span>
+          <span class="k-card-badge">ONLY VOLTCLOUD</span>
+        </div>
+        <div class="k-days">
+          <div class="k-day" onclick="kDay(this)"><div class="k-day-n">1</div><div class="k-day-l">DAY</div></div>
+          <div class="k-day on" onclick="kDay(this)"><div class="k-day-n">2</div><div class="k-day-l">DAYS</div></div>
+          <div class="k-day" onclick="kDay(this)"><div class="k-day-n">3</div><div class="k-day-l">DAYS</div></div>
+          <div class="k-day" onclick="kDay(this)"><div class="k-day-n">5</div><div class="k-day-l">DAYS</div></div>
+        </div>
+        <div class="k-plan">
+          <div class="k-plan-h">▸ AI TRIP PLAN</div>
+          <div class="k-plan-i">📱 <b>Essential</b> — calls, SMS, maps</div>
+          <div class="k-plan-i">📡 <b>Smart Radio</b> — 5G off</div>
+          <div class="k-plan-i">🔆 <b>Display AI</b> — ambient</div>
+          <div class="k-plan-i">⏰ <b>Deep Sleep</b> — hibernate</div>
+        </div>
+        <button class="k-cta">🧳 Activate Trip Mode</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMPARISON ═══ -->
+<section class="sec" id="compare">
+  <div class="sec-label">COMPARISON</div>
+  <div class="sec-h">למה <em>Low Power Mode</em> לא מספיק</div>
+  <div class="sec-p">Apple נותן לך סליידר. אנחנו נותנים לך AI.</div>
+  <div class="cmp-wrap reveal">
+    <table class="cmp">
+      <tr><th>Feature</th><th>🍎 Apple Built-in</th><th>⚡ VoltCloud</th></tr>
+      <tr><td>Battery optimization</td><td class="n">סליידר 80-100%</td><td class="y">✅ AI Guarantee</td></tr>
+      <tr><td>Trip Mode</td><td class="n">❌ לא קיים</td><td class="y">✅ עד 5 ימים</td></tr>
+      <tr><td>Predictive AI</td><td class="n">❌ אין חיזוי</td><td class="y">✅ 48h prediction</td></tr>
+      <tr><td>SOS at low battery</td><td class="n">❌ לא קיים</td><td class="y">✅ מיקום + SMS</td></tr>
+      <tr><td>Family monitoring</td><td class="n">❌ Find My only</td><td class="y">✅ Battery + SOS</td></tr>
+      <tr><td>Smart Profiles</td><td class="n">❌ Focus only</td><td class="y">✅ 4 profiles</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="sec">
+  <div class="sec-label">BETA TESTERS</div>
+  <div class="sec-h">מה אומרים <em>המשתמשים</em> הראשונים</div>
+  <div class="sec-p">2,847 אנשים כבר ברשימת ההמתנה. הנה מה שבודקי הבטא אומרים.</div>
+  <div class="quotes">
+    <div class="qt reveal">
+      <p>יצאתי לטיול 3 ימים בלי מטען עם Trip Mode. הטלפון החזיק. פשוט קסם.</p>
+      <div class="qt-author"><div class="qt-av">👨‍💻</div><div><div class="qt-name">דניאל כ.</div><div class="qt-role">Full Stack Developer</div></div></div>
+    </div>
+    <div class="qt reveal">
+      <p>אבא שלי בן 78, תמיד נגמר לו הסוללה. עכשיו אני רואה מרחוק ומקבלת SOS. מציל חיים.</p>
+      <div class="qt-author"><div class="qt-av">👩</div><div><div class="qt-name">שירה מ.</div><div class="qt-role">Product Manager</div></div></div>
+    </div>
+    <div class="qt reveal">
+      <p>Battery Guarantee — אני אומר 23:00 וזה מחזיק. פשוט עובד. לא מבין למה Apple לא עשו את זה.</p>
+      <div class="qt-author"><div class="qt-av">🧑</div><div><div class="qt-name">עמית ר.</div><div class="qt-role">UI Designer</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="sec">
+  <div class="sec-label">HOW IT WORKS</div>
+  <div class="sec-h">שלושה צעדים <em>וזהו</em></div>
+  <div class="steps">
+    <div class="stp reveal"><h3>הורד VoltCloud</h3><p>App Store / Google Play. הרשמה עם מספר טלפון בלבד.</p></div>
+    <div class="stp reveal"><span class="stp-arrow">→</span><h3>תגיד ל-AI</h3><p>"תחזיק עד 23:00" או "יוצא ל-3 ימים." ה-AI מתחיל מיד.</p></div>
+    <div class="stp reveal"><span class="stp-arrow">→</span><h3>תשכח מהסוללה</h3><p>VoltCloud מנהל הכל ברקע. אתה רק חי את החיים.</p></div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-sec" id="join">
+  <div class="sec-label">JOIN THE WAITLIST</div>
+  <h2>הצטרף ל-<em>2,847</em> אנשים<br>שכבר מחכים</h2>
+  <p>הראשונים יקבלו Pro חינם לחודש. ללא כרטיס אשראי.</p>
+  <div class="wl">
+    <div id="wlForm2">
+      <div class="wl-row">
+        <input class="wl-in" id="wlEmail2" type="email" placeholder="your@email.com" dir="ltr">
+        <button class="wl-btn" onclick="join(2)">הצטרף בחינם →</button>
+      </div>
+    </div>
+    <div class="wl-ok" id="wlOk2">
+      <div class="wl-ok-ico">🎉</div>
+      <div class="wl-ok-h">!מעולה, נרשמת</div>
+      <div class="wl-ok-p">נודיע לך ברגע שנשיק.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WA float -->
+<a class="wa-f" href="https://wa.me/972501234567?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%A6%D7%98%D7%A8%D7%A3%20%D7%9C-VoltCloud" target="_blank" rel="noopener">
+  <span>💬</span><span class="wa-f-txt">דבר איתנו</span>
+</a>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-links">
+    <a href="#">תנאי שימוש</a>
+    <a href="#">מדיניות פרטיות</a>
+    <a href="#">צור קשר</a>
+    <a href="#">Blog</a>
+  </div>
+  <p>© 2026 VoltCloud. All rights reserved.</p>
+  <p style="font-size:11px;color:var(--k20);margin-top:8px">VoltCloud optimizes battery through intelligent management. Results vary by device and usage.</p>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>20)});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Waitlist
+function join(n){
+  const el=document.getElementById('wlEmail'+(n===1?'':'2'));
+  const email=el.value.trim();
+  if(!email||!email.includes('@')){el.style.borderColor='var(--rd)';el.style.animation='shake .4s ease';setTimeout(()=>{el.style.borderColor='';el.style.animation=''},500);return}
+  document.getElementById('wlForm'+(n===1?'':'2')).style.display='none';
+  document.getElementById('wlOk'+(n===1?'':'2')).style.display='block';
+  // TODO: Connect to Mailchimp/ConvertKit/Supabase
+  console.log('📧 Waitlist signup:',email);
+}
+
+// Trip Mode interactive
+function kDay(el){document.querySelectorAll('.k-day').forEach(d=>d.classList.remove('on'));el.classList.add('on')}
+
+// Shake animation
+const style=document.createElement('style');
+style.textContent='@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}';
+document.head.appendChild(style);
+</script>
+</body>
+</html>
